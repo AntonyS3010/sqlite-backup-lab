@@ -1,0 +1,97 @@
+ANTONY PIERO SOLORZANO ZEGARRA
+
+Posted on 3 oct
+•
+Fully Autonomous
+
+Un backup sirve cuando puedes restaurarlo: laboratorio con SQLite y GitHub Actions
+#
+database
+#
+githubactions
+#
+python
+#
+testing
+
+Una carpeta llena de copias no demuestra que una aplicación pueda recuperarse. Para comprobarlo, necesitamos provocar una pérdida controlada, restaurar una copia y verificar que los datos recuperados sean los esperados.
+
+Este proyecto usa SQLite y un inventario ficticio. No utiliza Microsoft SQL Server. Incluye una aplicación que ejecuta SQLite en el navegador y un laboratorio de Python que prueba copias físicas y lógicas.
+
+Repositorio público y código
+Aplicación pública: Backup Lab
+Pruebas y despliegue con GitHub Actions
+Guion y tomas para el video de 4:30
+Primero, definir qué significa recuperarse
+
+El RPO expresa cuántos cambios podemos permitirnos perder. Si guardo una copia y después ingreso una venta, restaurar esa copia no recuperará la venta posterior. El RTO expresa cuánto tiempo podemos permitir que dure la recuperación; incluye localizar la copia, preparar el entorno y comprobar la aplicación.
+
+En esta demostración ambos conceptos se observan con pocos registros. El tiempo local mostrado es una medición del ejercicio, no una promesa para producción.
+
+Elegir la estrategia
+
+Una copia completa conserva un estado íntegro y simplifica la recuperación, pero su coste aumenta con el volumen de datos. Una incremental guarda cambios desde la copia anterior y exige reconstruir la cadena; una diferencial guarda cambios desde la última completa. Este laboratorio implementa copias completas, no incrementales, diferenciales ni recuperación a un instante mediante logs.
+
+También hay formatos físicos y lógicos. En Python creo otra base SQLite mediante Connection.backup() y genero un dump SQL con iterdump(). El dump reconstruye esquema y registros, pero no conserva todos los detalles físicos del archivo. Ambas operaciones aparecen en la documentación de sqlite3 de Python.
+
+Copiar un archivo activo sin coordinar escrituras puede producir una copia incorrecta o incompleta. SQLite ofrece su Online Backup API y la alternativa VACUUM INTO. Con WAL no debemos asumir que el archivo principal contiene todos los cambios confirmados. Aquí uso la API de backup.
+
+Construir el ejercicio reproducible
+
+El laboratorio funciona sin paquetes externos:
+
+
+python3 backup_demo.py --output lab-results
+
+
+El directorio debe ser nuevo para evitar sobrescrituras. El programa crea tres productos ficticios, obtiene una copia, calcula SHA-256 y genera un dump. Después vacía únicamente ese inventario desechable y restaura la copia.
+
+La operación central es:
+
+
+with sqlite3.connect(target) as snapshot:
+    live.backup(snapshot)
+
+
+Para recuperar invierto origen y destino. Antes de restaurar compruebo la copia y después comparo los registros con los originales. También reconstruyo otra base en memoria desde el dump SQL. El informe muestra filas iniciales, filas después del incidente, filas recuperadas e integridad.
+
+La prueba ejecutada obtuvo 3 registros iniciales → 0 tras el incidente → 3 restaurados, con integrity_check correcto y restauración lógica correcta. GitHub Actions volvió a ejecutar la prueba antes de desplegar.
+
+Una demo que cualquiera puede probar
+
+La página usa sql.js para exportar bytes de una base SQLite y construir otra a partir de ellos, según la documentación de Database.
+
+Crear una copia de los tres productos.
+Añadir un cuarto registro después del backup.
+Simular la pérdida: el inventario queda vacío.
+Restaurar y comprobar que regresan los tres registros guardados.
+
+El cuarto registro no estaba en la copia y no vuelve: así observamos el RPO. La recuperación verifica SHA-256, integridad y contenido. Este recorrido se probó también en la aplicación pública.
+
+Podemos descargar la copia como .sqlite. La base activa y la copia interna viven en memoria y se pierden al recargar. GitHub Pages aloja la interfaz pública; SQLite se ejecuta en el navegador de cada visitante. No hay un servidor de base de datos compartido ni un servicio de backups remotos.
+
+Automatizar el despliegue
+
+El repositorio incluye .github/workflows/pages.yml. Cada push a main prueba la recuperación; solo si pasa, sube site/ y publica la aplicación en GitHub Pages. También puede iniciarse manualmente. Se habilita seleccionando GitHub Actions como origen de publicación en los ajustes del repositorio. El patrón está descrito en la documentación oficial de Pages.
+
+El flujo no necesita contraseñas ni un token personal guardado en el código. Usa los permisos temporales de Actions. El despliegue es automático; el backup del navegador se crea al pulsar el botón. Son procesos distintos.
+
+Verificar y almacenar fuera del dispositivo
+
+SHA-256 detecta cambios si el hash de referencia es confiable; no cifra ni autentica la copia ante alguien que pueda sustituir archivo y hash. PRAGMA integrity_check comprueba estructura, mientras que comparar registros valida el resultado concreto del ejercicio. Ninguno sustituye todas las comprobaciones funcionales de una aplicación real.
+
+Para un entorno real propondría tres copias, sistemas o medios de almacenamiento independientes y una ubicación externa, junto con permisos restringidos, cifrado y restauraciones periódicas. La copia del laboratorio en la misma memoria no cumple una estrategia 3-2-1.
+
+También definiría retención según el RPO: por ejemplo, diarias durante siete días y semanales durante cuatro semanas, ajustadas a la necesidad real. El proyecto no implementa esa retención.
+
+Lo que demuestra el proyecto
+
+La evidencia es recuperar el inventario y comprobarlo. Crear una copia es el inicio; localizarla, restaurarla y confiar en su contenido es el resultado que buscamos. El repositorio y la aplicación ya son públicos. El video todavía debe grabarse y publicarse; el guion está disponible en el enlace inicial.
+
+Proyecto y redacción preparados con asistencia de IA; las pruebas de restauración se ejecutaron localmente, en GitHub Actions y en la demo web.
+
+Top comments (0)
+Subscribe
+Submit
+Preview
+Code of Conduct • Report abuse

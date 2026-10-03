@@ -1,5 +1,3 @@
-# Estado — 3 de octubre de 2026
-
 TRABAJO: Estrategias de backup con SQLite
 ESTADO: Repositorio, app, automatización y artículo publicados; video pendiente.
 FECHA: 3 de octubre de 2026
@@ -26,12 +24,3 @@ TELEGRAM:
 PENDIENTE — grupo no identificado; enlaces no enviados.
 
 No presentar este ZIP como entrega completa hasta añadir el enlace del video.
-
-
-El laboratorio Python pasó localmente y en Actions. La aplicación pública pasó el recorrido: tres registros, copia, cuarto registro posterior, pérdida y recuperación de los tres originales. El artículo se abrió sin sesión y es público. El despliegue usa Pages y permisos temporales de Actions, sin secretos personalizados.
-
-Para completar la consigna: grabar el video de menos de cinco minutos usando docs/video.md, publicarlo, añadir su URL al artículo y a ENLACES.txt, y regenerar el ZIP. El ZIP actual declara el pendiente y todavía no es una entrega académica completa.
-
-Para enviar a Telegram hace falta identificar el grupo y autorizar directamente el envío.
-
-GitHub Pages sirve una app estática; SQLite se ejecuta en el navegador. No es un servidor remoto de backups. Todos los registros son ficticios.

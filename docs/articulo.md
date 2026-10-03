@@ -1,6 +1,6 @@
 ---
 title: 'Un backup sirve cuando puedes restaurarlo: laboratorio con SQLite y GitHub Actions'
-published: false
+published: true
 tags: sqlite, database, beginners, devops
 description: 'Copia completa, pérdida simulada y recuperación verificada con SQLite, Python y una demo web.'
 ---
@@ -68,4 +68,12 @@ Para llevarlo a un entorno real propondría tres copias, almacenamiento en medio
 
 La evidencia útil de este ejercicio es recuperar el inventario y comprobarlo. Crear una copia es el inicio; poder localizarla, restaurarla y confiar en su contenido es el resultado que buscamos.
 
-Los enlaces de repositorio, aplicación y video deben incorporarse aquí después de verificar sus publicaciones. Esta versión no afirma que ya estén publicadas.
+Artículo publicado (versión editada para Dev.to): https://dev.to/antonys3010/un-backup-sirve-cuando-puedes-restaurarlo-laboratorio-con-sqlite-y-github-actions-3i4p
+
+Repositorio: https://github.com/AntonyS3010/sqlite-backup-lab
+
+Aplicación: https://antonys3010.github.io/sqlite-backup-lab/
+
+Pruebas y despliegue exitosos: https://github.com/AntonyS3010/sqlite-backup-lab/actions/runs/37151388887
+
+Video pendiente de grabación y publicación; guion de 4:30 en docs/video.md. La copia exacta del texto publicado está en docs/articulo-publicado.txt. Proyecto y redacción preparados con asistencia de IA.

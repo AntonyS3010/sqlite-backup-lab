@@ -2,6 +2,13 @@
 
 Demostración educativa en español con datos ficticios. Sin MS SQL Server, contraseñas ni servicios de pago. Incluye una aplicación pública estática y un laboratorio reproducible en Python.
 
+## Enlaces verificados
+
+- [Aplicación](https://antonys3010.github.io/sqlite-backup-lab/)
+- [Artículo en Dev.to](https://dev.to/antonys3010/un-backup-sirve-cuando-puedes-restaurarlo-laboratorio-con-sqlite-y-github-actions-3i4p)
+- [Pruebas y despliegue exitosos](https://github.com/AntonyS3010/sqlite-backup-lab/actions/runs/37151388887)
+- Video: guion preparado; grabación y publicación pendientes.
+
 ## Ejecutar
 
 Requiere Python 3.9 o superior, sin paquetes adicionales:

@@ -1,11 +1,16 @@
-# Estado — 3 de octubre de 2026
+# Estado de la publicación
 
 TRABAJO: Estrategias de backup con SQLite
-ESTADO: Repositorio, app, automatización y artículo publicados; video pendiente.
 FECHA: 3 de octubre de 2026
+EQUIPO: Antony Piero Solorzano Zegarra y Adriana Rafaela Laos Gonzales
+ESTADO: Dos artículos, repositorio y aplicación publicados. Video local preparado; publicación pendiente.
 
-ARTÍCULO:
+ARTÍCULO — ANTONY PIERO SOLORZANO ZEGARRA:
 https://dev.to/antonys3010/un-backup-sirve-cuando-puedes-restaurarlo-laboratorio-con-sqlite-y-github-actions-3i4p
+
+ARTÍCULO — ADRIANA RAFAELA LAOS GONZALES:
+https://dev.to/antonys3010/como-saber-si-tu-backup-funciona-integridad-y-recuperacion-con-sqlite-adriana-laos-55gp
+Publicado desde la cuenta compartida de publicación de Antony; la integrante está identificada en título y texto.
 
 REPOSITORIO PÚBLICO:
 https://github.com/AntonyS3010/sqlite-backup-lab
@@ -13,25 +18,20 @@ https://github.com/AntonyS3010/sqlite-backup-lab
 APLICACIÓN PÚBLICA:
 https://antonys3010.github.io/sqlite-backup-lab/
 
-DESPLIEGUE AUTOMATIZADO Y PRUEBAS:
-https://github.com/AntonyS3010/sqlite-backup-lab/actions/runs/37151388887
+DESPLIEGUE AUTOMATIZADO:
+https://github.com/AntonyS3010/sqlite-backup-lab/actions
 
-GUION DE VIDEO (4:30):
-https://github.com/AntonyS3010/sqlite-backup-lab/blob/main/docs/video.md
-
-VIDEO PÚBLICO:
-PENDIENTE — grabar y publicar el video; añadir su URL real aquí.
+VIDEO (3:48, 1080p):
+PENDIENTE DE PUBLICACIÓN — MP4 local preparado y verificado, duración 3:48.
 
 TELEGRAM:
 PENDIENTE — grupo no identificado; enlaces no enviados.
 
-No presentar este ZIP como entrega completa hasta añadir el enlace del video.
+No entregar como trabajo completo hasta publicar el video y añadir su enlace.
 
 
-El laboratorio Python pasó localmente y en Actions. La aplicación pública pasó el recorrido: tres registros, copia, cuarto registro posterior, pérdida y recuperación de los tres originales. El artículo se abrió sin sesión y es público. El despliegue usa Pages y permisos temporales de Actions, sin secretos personalizados.
+El laboratorio Python pasó localmente y en Actions. La app pública pasó copia, cambio posterior, pérdida y restauración de los tres registros guardados. Los dos artículos se abrieron sin sesión y son públicos.
 
-Para completar la consigna: grabar el video de menos de cinco minutos usando docs/video.md, publicarlo, añadir su URL al artículo y a ENLACES.txt, y regenerar el ZIP. El ZIP actual declara el pendiente y todavía no es una entrega académica completa.
+El video es un montaje de capturas reales y texto en pantalla, sin voz ni cámara. Duración verificada: 228 segundos. Resolución: 1920×1080. No se presenta como grabación continua de pantalla. Material preparado con asistencia de IA.
 
-Para enviar a Telegram hace falta identificar el grupo y autorizar directamente el envío.
-
-GitHub Pages sirve una app estática; SQLite se ejecuta en el navegador. No es un servidor remoto de backups. Todos los registros son ficticios.
+Falta identificar el grupo de Telegram y autorizar el envío para completar ese paso de la consigna.

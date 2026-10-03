@@ -1,0 +1,40 @@
+TÍTULO:
+Backup y recuperación con SQLite | Demo + GitHub Actions
+
+DESCRIPCIÓN:
+Demostración educativa en español sobre estrategias de backup de bases de datos, sin Microsoft SQL Server.
+
+El video muestra la construcción del laboratorio, una copia completa SQLite, cambios posteriores, pérdida simulada y recuperación verificada. Incluye SHA-256, integrity_check, comparación de registros y despliegue automático mediante GitHub Actions.
+
+Es un montaje de capturas reales y textos explicativos en pantalla, sin narración ni cámara. Todos los datos son ficticios. SQLite se ejecuta en el navegador; GitHub Pages aloja la aplicación estática. No es un servicio de backups de producción y no implementa backups incrementales, diferenciales, PITR ni retención remota.
+
+Equipo:
+Antony Piero Solorzano Zegarra
+Adriana Rafaela Laos Gonzales
+
+Código público:
+https://github.com/AntonyS3010/sqlite-backup-lab
+
+Aplicación:
+https://antonys3010.github.io/sqlite-backup-lab/
+
+Artículo de Antony:
+https://dev.to/antonys3010/un-backup-sirve-cuando-puedes-restaurarlo-laboratorio-con-sqlite-y-github-actions-3i4p
+
+Artículo correspondiente a Adriana:
+https://dev.to/antonys3010/como-saber-si-tu-backup-funciona-integridad-y-recuperacion-con-sqlite-adriana-laos-55gp
+
+Capítulos:
+0:00 Introducción
+0:20 Construcción de la aplicación
+0:42 Backup consistente en Python
+1:10 Inventario inicial
+1:26 Crear copia completa
+1:46 Cambios posteriores y RPO
+2:06 Pérdida simulada
+2:22 Restaurar y verificar
+2:46 GitHub Actions y despliegue
+3:10 Límites y estrategia operativa
+3:30 Código y artículos
+
+Material preparado con asistencia de IA. Las pruebas se ejecutaron localmente, en GitHub Actions y en la aplicación pública.

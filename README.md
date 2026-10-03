@@ -7,7 +7,8 @@ Demostración educativa en español con datos ficticios. Sin MS SQL Server, cont
 - [Aplicación](https://antonys3010.github.io/sqlite-backup-lab/)
 - [Artículo en Dev.to](https://dev.to/antonys3010/un-backup-sirve-cuando-puedes-restaurarlo-laboratorio-con-sqlite-y-github-actions-3i4p)
 - [Pruebas y despliegue exitosos](https://github.com/AntonyS3010/sqlite-backup-lab/actions/runs/37151388887)
-- Video: guion preparado; grabación y publicación pendientes.
+- [Artículo correspondiente a Adriana](https://dev.to/antonys3010/como-saber-si-tu-backup-funciona-integridad-y-recuperacion-con-sqlite-adriana-laos-55gp)
+- Video (3:48): PENDIENTE DE PUBLICACIÓN — MP4 local preparado y verificado, duración 3:48.
 
 ## Ejecutar
 

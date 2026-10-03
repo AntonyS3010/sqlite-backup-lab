@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Backup Lab · SQLite</title>
+<meta name="description" content="Laboratorio educativo: crea una copia SQLite, simula una pérdida y comprueba la recuperación.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%23112925'/%3E%3Ctext x='8' y='29' font-size='28' fill='%2395f2bd'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+<script defer src="https://cdn.jsdelivr.net/npm/sql.js@1.13.0/dist/sql-wasm.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body><main>
+<nav><strong>◉ BACKUP LAB</strong><span>SQLite / Laboratorio 01</span></nav>
+<header><p class="eyebrow">COPIAR ES SOLO EL COMIENZO</p><h1>Tu backup sirve<br>cuando puedes <em>restaurarlo.</em></h1><p>Trabaja con una base real de SQLite en tu navegador. Guarda una copia, simula una pérdida y recupera tu inventario.</p></header>
+<aside>Datos ficticios · Sin cuentas ni servidor de base de datos · La base se pierde al recargar; descarga tu copia para conservarla.</aside>
+<section class="lab"><div><p class="eyebrow">INVENTARIO DE PRUEBA</p><h2><span id="count">—</span> registros</h2><table><thead><tr><th>ID</th><th>Producto</th><th>Stock</th></tr></thead><tbody id="rows"></tbody></table><button id="add" disabled>Añadir un registro ficticio</button></div>
+<div class="actions"><h2>El ciclo de recuperación</h2><button id="backup" disabled>01 / Crear copia completa</button><button id="download" disabled>Descargar copia .sqlite</button><button id="incident" class="danger" disabled>02 / Simular pérdida de datos</button><button id="restore" disabled>03 / Restaurar y verificar</button><p id="status" role="status" aria-live="polite">Cargando SQLite…</p><p id="digest" class="small"></p></div></section>
+<section class="principles"><article><p class="eyebrow">01 / OBJETIVO</p><h3>RPO: cuánto perder</h3><p>La restauración recupera el estado de la copia. Los registros añadidos después de ella no se recuperan.</p></article><article><p class="eyebrow">02 / OPERACIÓN</p><h3>RTO: cuánto esperar</h3><p>Medimos el tiempo local de restauración. Una base pequeña no permite estimar tiempos de producción.</p></article><article><p class="eyebrow">03 / EVIDENCIA</p><h3>Verificar, siempre</h3><p>Comparamos SHA-256, ejecutamos integrity_check y verificamos el inventario recuperado.</p></article></section>
+<footer>Demostración educativa. La copia en memoria comparte el mismo dispositivo: por sí sola no cumple una estrategia 3-2-1. <a href="https://www.sqlite.org/backup.html">Documentación SQLite ↗</a></footer>
+</main></body></html>
